@@ -7,12 +7,12 @@ on:
     - cron: '0 0 1 * *'
 
 jobs:
-  build:
-    runs-on: macos-latest
-    strategy:
-      fail-fast: false
-    
-    steps:
+build:
+  runs-on: macos-14  # macOS Sonoma
+  strategy:
+    fail-fast: false
+
+  steps:
     - uses: actions/checkout@v4
 
     - name: Setup build directory
@@ -32,7 +32,6 @@ jobs:
           fi
           sleep 10
         done
-
     - name: Make
       working-directory: ./buildproducts
       run: |
